@@ -1,0 +1,52 @@
+-- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: mydb
+-- ------------------------------------------------------
+-- Server version	8.0.18
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `station_phones`
+--
+
+DROP TABLE IF EXISTS `station_phones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `station_phones` (
+  `Station_id` int(11) NOT NULL,
+  `Phone_no` varchar(15) NOT NULL,
+  KEY `fk_Station_Phones_Station1_idx` (`Station_id`),
+  CONSTRAINT `fk_Station_Phones_Station1` FOREIGN KEY (`Station_id`) REFERENCES `station` (`Station_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `station_phones`
+--
+
+LOCK TABLES `station_phones` WRITE;
+/*!40000 ALTER TABLE `station_phones` DISABLE KEYS */;
+INSERT INTO `station_phones` VALUES (1,'0800 1111'),(2,'07145 014254'),(3,'056 3569 2906'),(4,'07624 456775'),(5,'0800 557888'),(6,'0800 509 0763'),(7,'0808 855 4191'),(8,'(0116) 829 9917'),(9,'0500 296072'),(10,'0800 840 0845'),(11,'0500 455002'),(12,'0800 290 0121'),(13,'0800 003262'),(14,'(018046) 85641'),(15,'(016977) 8817'),(16,'(016977) 3893'),(17,'07624 745843'),(18,'07624 643156'),(19,'056 5148 6743'),(20,'076 0022 9521');
+/*!40000 ALTER TABLE `station_phones` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-02-27 21:19:02

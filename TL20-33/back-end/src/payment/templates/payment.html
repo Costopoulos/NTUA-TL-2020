@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <form method='POST'> {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        You own {{user.points}} points, 
+        {% if user.points >= 5000 %}
+            Do you want to exchange 5000 points for a 15$ off coupon?
+            <input type="radio" name="affirmative" value="yes" checked>Yes</input>
+            <input type="radio" name="negative" value="no">No</input>
+        {% else %}
+            they are insufficient for getting a coupon.
+        {% endif %}
+    {% else %}
+        <p>You are not logged in</p>
+        <!-- <a href="{% url 'login' %}?next={{ user.username | urlencode }}?p={{user.password | urlencode}}">Log In</a> -->
+        <a href="{% url 'signin' %}">Sign In</a>
+    {% endif %}
+    <br><br>
+{% endblock %}

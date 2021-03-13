@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Sela UMLougkres</h1>
+	<!-- <p>User is {{request.user}}</p>
+	<p>Is user authenticated? {{request.user.is_authenticated}}</p> -->
+	{% if user.is_authenticated %}
+  		Hi {{ user.username }}!
+  		<!-- Pass is {{user.password}}! #it is hashed. -->
+  		
+
+      
+
+      Usertoken is {{token}}
+
+      Usertoken is {{serialize('json',token,cls=DjangoJSONEncoder)}}
+
+
+  		
+
+      <p><a href="{% url 'logout' %}">Log Out</a></p>
+  		<!-- <form action="http://127.0.0.1:8765/api-token-auth/ username=costo p
+assword=68709900dKnSkKeK" method="POST">
+  			
+  			<input type="submit" value='gettoken'>
+  		</form> -->
+	{% else %}
+  		<p>You are not logged in</p>
+  		<!-- <a href="{% url 'login' %}?next={{ user.username | urlencode }}?p={{user.password | urlencode}}">Log In</a> -->
+  		<a href="{% url 'newlogin' %}">Sign In</a>
+	{% endif %}
+{% endblock %}
