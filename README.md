@@ -4,3 +4,5 @@
 Back- & front-end, client and database.  
 
 For the question see QUESTIONS.md
+
+Official repo of this project is https://github.com/ntua/TL20-33
