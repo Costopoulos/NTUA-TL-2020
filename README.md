@@ -1,4 +1,4 @@
-# TL2020WithComments
+# NTUA-TL-2020
 :electric_plug: :computer:  Software Engineering Project for the development of an environment where electrical vehicles are being charged
 
 Back- & front-end, client and database.  
