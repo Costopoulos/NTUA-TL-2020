@@ -1,0 +1,28 @@
+<div style="padding: 13px;">
+    <div>
+        <h1 class="my-title">Available Stations</h1>
+    </div>
+
+    <span *ngIf="stations === null">
+        <div class="wrapper">
+          <mat-spinner color="warn"></mat-spinner>
+        </div>
+        <div class="wrapper">
+          <h3 style="margin-top:10px; color: #F44336;">Sending Request</h3>
+        </div>
+    </span>
+
+    <div fxLayout="row wrap" fxLayoutGap="0px" fxLayoutAlign="space evenly" class="cardList">
+        <mat-card *ngFor="let station of stations; let myIndex = index" class="cardListItem">
+            <mat-card-header>
+                <div mat-card-avatar>
+                    <mat-icon class="avatar">ev_station</mat-icon> 
+                </div>
+                <mat-card-title><h1> Station {{myIndex + 1}}</h1></mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+                <button [routerLink]="[myIndex + 1]" mat-raised-button color="primary" class="zoom">View sessions</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

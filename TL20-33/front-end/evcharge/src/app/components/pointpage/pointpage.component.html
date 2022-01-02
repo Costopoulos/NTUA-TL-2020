@@ -1,0 +1,21 @@
+<div style="padding: 13px;">
+    <div>
+        <h1 class="my-title">Point {{id}} has registered the following chargings: </h1>
+    </div>
+
+    <span *ngIf="points === null">
+        <div class="wrapper">
+          <mat-spinner color="warn"></mat-spinner>
+        </div>
+        <div class="wrapper">
+          <h2 style="margin-top:10px; color: #F44336;">There are no registered chargings for this point</h2>
+          <p>
+          </p>
+          <h3 style="margin-top:10px; color: #F44336;">Please, select another</h3>
+        </div>
+    </span>
+
+
+
+</div>
+<app-pointchargings *ngIf="show_transactions === true"></app-pointchargings>

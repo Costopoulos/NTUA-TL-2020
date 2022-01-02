@@ -1,0 +1,19 @@
+<div style="padding: 13px;">
+    <div>
+        <h1 class="my-title">Available Station-Points</h1>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutGap="0px" fxLayoutAlign="space evenly" class="cardList">
+        <mat-card *ngFor="let point of points; let myIndex = index" class="cardListItem">
+            <mat-card-header>
+                <div mat-card-avatar>
+                    <mat-icon class="avatar">ev_station</mat-icon> 
+                </div>
+                <mat-card-title><h1> Point {{myIndex + 1}}</h1></mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+                <button [routerLink]="[myIndex + 1]" mat-raised-button color="primary" class="zoom">View sessions</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

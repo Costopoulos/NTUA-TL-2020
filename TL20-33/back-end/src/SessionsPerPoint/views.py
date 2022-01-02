@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_csv.renderers import JSONRenderer, CSVRenderer
 from rest_framework import status
-import json
+import json, os
 import datetime
 from .models import *
 
@@ -76,7 +76,7 @@ class SPP_pointID_Start(APIView):
                     datetime.datetime(year=int(startString[0:4]), month=int(startString[4:6]), day=int(startString[6:8]))
                 except:
                     startString = startString[0:4] + "-" + startString[4:6] + "-" + startString[6:8]
-                    return Response({"Bad Request": "Start Date \'" + startString +"\' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({"Bad Request": "Start Date '" + startString +"' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
                 
                 # Make date into MySQL format
                 startString = startString[0:4] + "-" + startString[4:6] + "-" + startString[6:8] + " 00:00:00"
@@ -115,12 +115,12 @@ class SPP_pointID_Start_Finish(APIView):
                     datetime.datetime(year=int(startString[0:4]), month=int(startString[4:6]), day=int(startString[6:8]))
                 except:
                     startString = startString[0:4] + "-" + startString[4:6] + "-" + startString[6:8]
-                    return Response({"Bad Request": "Start Date \'" + startString +"\' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({"Bad Request": "Start Date '" + startString +"' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
                 try:
                     datetime.datetime(year=int(finishString[0:4]), month=int(finishString[4:6]), day=int(finishString[6:8]))
                 except:
                     finishString = finishString[0:4] + "-" + finishString[4:6] + "-" + finishString[6:8]
-                    return Response({"Bad Request": "Finish Date \'" + finishString +"\' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({"Bad Request": "Finish Date '" + finishString +"' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
                 
                 # Check if Start Date < Finish Data
                 if finish < start:

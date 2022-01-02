@@ -1,0 +1,18 @@
+<div style="padding: 13px;">
+    <div>
+        <h1 class="my-title"> Provider {{id}} has registered the following chargings: </h1>
+    </div>
+
+    <span *ngIf="sessions === null">
+        <div class="wrapper">
+          <mat-spinner color="warn"></mat-spinner>
+        </div>
+        <div class="wrapper">
+          <h3 style="margin-top:10px; color: #F44336;">Sending Request</h3>
+        </div>
+    </span>
+
+
+
+</div>
+<app-providerchargings *ngIf="show_transactions === true"></app-providerchargings>

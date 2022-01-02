@@ -22,7 +22,7 @@ from .views import (
     SPEV_vehicleID_Start_Finish,
 )
 
-app_name = "SessionPerEV"
+app_name = "SessionsPerEV"
 urlpatterns = [
 
     path('', SPEV_NoArgs.as_view(), name='SPEV_NoArgs'),

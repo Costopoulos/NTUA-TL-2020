@@ -1,0 +1,19 @@
+<div class="app-container">
+<mat-toolbar color="primary" class="mat-elevation-z4">
+  <h1>
+    EV Charge'Upp
+  </h1>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/sessions-per-ev">EV Sessions</button>
+    <button mat-button routerLink="/sessions-per-station">Station Sessions</button>
+    <button mat-button routerLink="/sessions-per-point">Point Sessions</button>
+    <button mat-button routerLink="/sessions-per-provider">Provider Sessions</button>
+    <button mat-button routerLink="/charge"> Charge </button>
+    <button mat-button routerLink="/payment"> Payment </button>
+    <button mat-button routerLink="/login"> Login </button>
+    <button mat-button routerLink="/logout"> Logout </button>
+</mat-toolbar>
+  <div class="app-body">
+    <router-outlet></router-outlet>
+  </div>
+</div>

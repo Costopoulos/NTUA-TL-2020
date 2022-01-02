@@ -1,0 +1,27 @@
+<div fxLayoutAlign="center center" fxFlexFill class ="main div">
+    <mat-card fxFlex = "25">
+        <mat-card-title fxLayoutAlign="center" color = "primary">
+            Charging
+        </mat-card-title>
+        
+        <form fxLayoutAlign="stretch" fxLayout="column" >
+            <mat-form-field appearance="fill">
+                <mat-label>Select Charge Type</mat-label>
+                <mat-select [(ngModel)]="selectedValue" name="slow">
+                    <mat-option *ngFor="let type of types" [value]="type">
+                        {{type}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p> selected vcalue : {{selectedValue}} </p>
+            <button
+             mat-raised-button 
+             type="button" 
+             class="mt-5" 
+             color="primary"
+             [routerLink] = "['details',selectedValue]"
+            >
+            Charge Now</button>
+        </form>
+    </mat-card>
+</div>

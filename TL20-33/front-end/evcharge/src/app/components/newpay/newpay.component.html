@@ -1,0 +1,29 @@
+<h2 mat-dialog-title style="margin-left:13px;">Make new payment</h2>
+<div mat-dialog-content>
+    <div style="padding: 13px;">
+        <form #insertStoreForm="ngForm" [formGroup]="data">
+            <mat-form-field appearance="legacy">
+                <mat-label>amount</mat-label>
+                <input matInput formControlName="amount">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="legacy">
+                <mat-label>method</mat-label>
+                <input matInput formControlName="method">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="legacy">
+                <mat-label>bank</mat-label>
+                <input matInput formControlName="bank">
+            </mat-form-field>
+         </form>                
+    </div>
+</div>
+
+<div mat-dialog-actions>
+    <div class="button-row" style="margin-left:40px;">
+        <button mat-stroked-button color="warn" class="zoom" (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button [disabled]="true" *ngIf="!insertStoreForm.valid">Ok</button>
+        <button mat-raised-button color="primary" class="zoom" *ngIf="insertStoreForm.valid" [mat-dialog-close]="data">Ok</button>
+    </div>
+</div>

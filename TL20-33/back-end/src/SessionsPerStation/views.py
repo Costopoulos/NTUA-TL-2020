@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_csv.renderers import JSONRenderer, CSVRenderer
 from rest_framework import status
-import json
+import json, os
 import datetime
 from .models import *
 
@@ -13,9 +13,13 @@ from django.views.generic import (
 
 
 class SPS_NoArgs(APIView):
-    
+
+    renderer_classes = [JSONRenderer, CSVRenderer]
     def get(self, request):
-        result = Station.objects.all().count()
+        result1 = Charging.objects.filter(type='slow').count()
+        result2 = Charging.objects.filter(type='medium').count()
+        result3 = Charging.objects.filter(type='fast').count()
+        result = json.loads(json.dumps([result1, result2, result3]))
         return Response(result)
 
 def getJsonObject(objects, model):
@@ -75,7 +79,7 @@ class SPS_stationID_Start(APIView):
                     datetime.datetime(year=int(startString[0:4]), month=int(startString[4:6]), day=int(startString[6:8]))
                 except:
                     startString = startString[0:4] + "-" + startString[4:6] + "-" + startString[6:8]
-                    return Response({"Bad Request": "Start Date \'" + startString +"\' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({"Bad Request": "Start Date '" + startString +"' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
                 
                 # Make date into MySQL format
                 startString = startString[0:4] + "-" + startString[4:6] + "-" + startString[6:8] + " 00:00:00"
@@ -115,12 +119,12 @@ class SPS_stationID_Start_Finish(APIView):
                     datetime.datetime(year=int(startString[0:4]), month=int(startString[4:6]), day=int(startString[6:8]))
                 except:
                     startString = startString[0:4] + "-" + startString[4:6] + "-" + startString[6:8]
-                    return Response({"Bad Request": "Start Date \'" + startString +"\' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({"Bad Request": "Start Date '" + startString +"' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
                 try:
                     datetime.datetime(year=int(finishString[0:4]), month=int(finishString[4:6]), day=int(finishString[6:8]))
                 except:
                     finishString = finishString[0:4] + "-" + finishString[4:6] + "-" + finishString[6:8]
-                    return Response({"Bad Request": "Finish Date \'" + finishString +"\' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({"Bad Request": "Finish Date '" + finishString +"' isn't valid"}, status=status.HTTP_400_BAD_REQUEST)
                 
                 # Check if Start Date < Finish Data
                 if finish < start:

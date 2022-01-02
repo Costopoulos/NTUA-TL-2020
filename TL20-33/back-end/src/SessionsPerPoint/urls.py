@@ -22,11 +22,11 @@ from .views import (
     SPP_pointID_Start_Finish,
 )
 
-app_name = "SessionPerPoint"
+app_name = "SessionsPerPoint"
 urlpatterns = [
 
-    path('', SPP_NoArgs.as_view(), name='SSP_NoArgs'),
-    path('<int:point_id>', SPP_pointID.as_view(), name='SSP1'),
-    path('<int:point_id>/<int:start>', SPP_pointID_Start.as_view(), name='SSP2'),
-    path('<int:point_id>/<int:start>/<int:finish>', SPP_pointID_Start_Finish.as_view(), name='SSP3'),
+    path('', SPP_NoArgs.as_view(), name='SPP_NoArgs'),
+    path('<int:point_id>', SPP_pointID.as_view(), name='SPP1'),
+    path('<int:point_id>/<int:start>', SPP_pointID_Start.as_view(), name='SPP2'),
+    path('<int:point_id>/<int:start>/<int:finish>', SPP_pointID_Start_Finish.as_view(), name='SPP3'),
 ]

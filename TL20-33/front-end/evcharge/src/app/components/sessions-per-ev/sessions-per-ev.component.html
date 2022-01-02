@@ -1,0 +1,20 @@
+<div style="padding: 13px;">
+    <div>
+        <h1 class="my-title">Available Cars</h1>
+    </div>
+
+
+    <div fxLayout="row wrap" fxLayoutGap="0px" fxLayoutAlign="space evenly" class="cardList">
+        <mat-card *ngFor="let a of cars; let sindex = index" class="cardListItem">
+            <mat-card-header>
+                <div mat-card-avatar>
+                    <mat-icon class="avatar">electric_car</mat-icon> 
+                </div>
+                <mat-card-title><h1> Car {{sindex + 1}}</h1></mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+                <button [routerLink]="[sindex + 1]" mat-raised-button color="primary" class="zoom">View sessions</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

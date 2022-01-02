@@ -1,0 +1,71 @@
+<div>
+<mat-form-field color="accent">
+    <mat-label>Starting Date</mat-label>
+    <input matInput [matDatepicker]="picker1" [min]="minDate" [max]="maxDate" (dateChange)="startingDateChange($event.value)">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+
+<span *ngIf="enabledate === true">
+    <mat-form-field color="accent">
+        <mat-label>Ending Date</mat-label>
+        <input matInput [matDatepicker]="endDate" [min]="minDate" [max]="maxDate" (dateChange)="endingDateChange($event.value)">
+        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+    </mat-form-field>
+</span>
+
+
+<div style="padding: 13px;">
+    <span *ngIf="loading === false">
+        <div style="margin-top:100px">
+            <div class="wrapper">
+                <mat-spinner color="warn"></mat-spinner>
+              </div>
+              <div class="wrapper">
+                <h3 style="margin-top:10px; color: #F44336;">Error</h3>
+              </div>
+        </div>
+    </span>
+    
+    <span *ngIf="chargings !== null && chargings.length === 0">
+        <h1 style="text-align:center;margin-top:100px;">
+            No chargings were found :(
+        </h1>
+    </span>
+
+    <div *ngIf="errorMessage" class="alert alert-warning">
+        <strong>Warning! Error status:</strong> {{errorMessage.status | json}}
+        <p> </p>
+        <strong>Error message:</strong> {{errorMessage.error | json}}
+        <p> </p>
+    </div>
+
+    <div fxLayout="column wrap" fxLayoutGap="10px" fxLayoutAlign="space-evenly" class="cardList">
+        <mat-card *ngFor="let charging of chargings" class="cardListItem">
+            <mat-card-header>
+                <div mat-card-avatar>
+                    <mat-icon class="avatar">electric_car</mat-icon> 
+                </div>
+                <mat-card-title class="with-icon">
+                    <mat-icon style="margin-right:5px">fingerprint</mat-icon>
+                    Charging ID: {{charging.Charging_id}},
+                    <mat-icon style="margin-left:5px;margin-right:5px">calendar_today</mat-icon>
+                    {{charging.Start}}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="margin-top:15px;">
+                <ul>
+                    <li>Station ID: {{charging.Station_id}}</li>
+                    <li>Point ID: {{charging.Point_id}}</li>
+                    <li>Address: {{charging.Address}}</li>
+                    <li>City: {{charging.City}}</li>
+                    <li>Car ID: {{charging.Car_id}} </li>                    
+                    <li>Charge Type: {{charging.Type}}</li>
+                </ul>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

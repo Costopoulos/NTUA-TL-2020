@@ -22,7 +22,7 @@ from .views import (
     SPPr_providerID_Start_Finish,
 )
 
-app_name = "SessionPerProvider"
+app_name = "SessionsPerProvider"
 urlpatterns = [
 
     path('', SPPr_NoArgs.as_view(), name='SSPr_NoArgs'),

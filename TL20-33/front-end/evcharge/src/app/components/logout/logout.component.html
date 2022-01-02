@@ -1,0 +1,21 @@
+<div fxLayoutAlign="center center" fxFlexFill class ="main div">
+    <mat-card fxFlex = "25">
+        <mat-card-title fxLayoutAlign="center" color = "primary">
+            Logout Page
+        </mat-card-title>
+        
+        <form fxLayoutAlign="stretch" fxLayout="column" >
+            
+           
+            <button
+             mat-raised-button 
+             type="button" 
+             class="mt-5" 
+             color="primary"
+             (click)="logoutProcess()"
+             routerLink="/"
+            >
+            Logout Now</button>
+        </form>
+    </mat-card>
+</div>

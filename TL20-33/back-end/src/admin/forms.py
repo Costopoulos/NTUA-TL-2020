@@ -38,3 +38,8 @@ class UserLoginForm(forms.Form):
         if user is None:
             raise ValidationError("Λάθος κωδικός πρόσβασης",code='wrong_password')
         return password
+
+        
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()

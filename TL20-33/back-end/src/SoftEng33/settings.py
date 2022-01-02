@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'pages',
     'payment',
     'admin.apps.AdminConfig',  #we want this
-    'authorization',
+    #'authorization',
     'pleasework',
     #'administration',
     #'corsheaders',
@@ -117,7 +117,12 @@ REST_FRAMEWORK = {
         'rest_framework_csv.renderers.JSONRenderer',
         'rest_framework_csv.renderers.CSVRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
-    ]
+    ],
+    #  'DEFAULT_PARSER_CLASSES': [
+    #     'rest_framework.parsers.MultiPartParser',
+    #     'rest_framework.parsers.FormParser',
+    #     'rest_framework.parsers.FileUploadParser',
+    # ]
 }
 
 # Password validation
@@ -171,6 +176,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 AUTH_USER_MODEL = 'pleasework.User' #ONLY FOR PLEASEWORK APP, FUCK IT TO DEATH IN OTHER CASES 
+#CHARGING_MODEL = 'SessionsPerEV.Charging' 
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True

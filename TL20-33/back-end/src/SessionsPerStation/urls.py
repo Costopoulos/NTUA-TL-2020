@@ -22,7 +22,7 @@ from .views import (
     SPS_stationID_Start_Finish,
 )
 
-app_name = "SessionPerStation"
+app_name = "SessionsPerStation"
 urlpatterns = [
 
     path('', SPS_NoArgs.as_view(), name='SPS_NoArgs'),
